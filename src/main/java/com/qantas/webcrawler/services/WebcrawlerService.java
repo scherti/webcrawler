@@ -32,13 +32,6 @@ public class WebcrawlerService {
         return scanForLinksWorker(0, rootURL);
     }
 
-    /*
-    1. Approach: single threaded sequential scanning
-    2. Approach: multi threaded scanning with countdown latch
-        - max. connection
-        - timeout per connection
-        - retries if failed
-    */
     private List<WebLink> scanForLinksWorker(int level, String url) {
         List<WebLink> links = new ArrayList<>();
         if (level >= maxLevel) {

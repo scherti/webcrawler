@@ -1,6 +1,7 @@
 package com.qantas.webcrawler.valueObjects;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ public class WebLink {
 
     String url;
     String title;
+    HttpStatus status;
     List<WebLink> nodes;
 
     public WebLink(String url, String title) {
@@ -30,6 +32,14 @@ public class WebLink {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(HttpStatus status) {
+        this.status = status;
     }
 
     public List<WebLink> getNodes() {

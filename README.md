@@ -19,7 +19,7 @@ This should increase the throughput dramatically. The threads are managed within
 ## What else could have been done
 
 For the assessment I wanted to limit the scope of this application and therefore only a limited set of functions was 
-implemented. Also the code coverage of JUnit tests is not complete.
+implemented. Only a few specific error handlers are to find in the code base as well as the code coverage of JUnit tests is not complete.
 
 Other useful addons i could think of would be:
 - limit of maximum amount of simultaneous web requests
@@ -31,6 +31,11 @@ Other useful addons i could think of would be:
 Build project
 
 **`TODO:`** Start Springboot application
+
+**`TODO:`** Sample web request
+
+Credentials:
+webcrawler/wbpwd
 
 
 ### Prerequisites
@@ -47,6 +52,7 @@ MAVEN COMMAND...
 ## Running the tests
 
 Running the test will start a mock server listening on port 1080
+
 **`TODO:`**
 MAVEN COMMAND...
 
@@ -66,4 +72,4 @@ Git HOOKS? Explain what these tests test and why
 
 ## Acknowledgments
 
-Girlfriend for having tolerated me ruining our Friday night! :-)
+Thanks to my Girlfriend for tolerating me ruining our Friday night by quickly hacking this! :-)

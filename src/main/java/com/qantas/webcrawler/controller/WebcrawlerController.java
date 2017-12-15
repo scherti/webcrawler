@@ -2,11 +2,13 @@ package com.qantas.webcrawler.controller;
 
 import com.qantas.webcrawler.services.WebcrawlerService;
 import com.qantas.webcrawler.valueObjects.WebLink;
+import org.jsoup.HttpStatusException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.SocketTimeoutException;
 import java.util.List;
 
 @RestController
@@ -17,8 +19,18 @@ public class WebcrawlerController {
     WebcrawlerService webcrawlerService;
 
     @GetMapping("/findLinks")
-    public ResponseEntity<List<WebLink>> findLinks(@RequestParam(value = "url") String url,
-                                                   @RequestParam(value = "level", defaultValue = "1") int level) {
-        return new ResponseEntity<>(webcrawlerService.findLinks(url, level), HttpStatus.OK);
+    public ResponseEntity findLinks(@RequestParam(value = "url") String url,
+                                    @RequestParam(value = "level", defaultValue = "1") int level) {
+        ResponseEntity response = null;
+        try {
+            response = new ResponseEntity(webcrawlerService.findLinks(url, level), HttpStatus.OK);
+        } catch (HttpStatusException e) {
+            response = new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        } catch (SocketTimeoutException e) {
+            response = new ResponseEntity(null, HttpStatus.GATEWAY_TIMEOUT);
+        } catch (Exception e) {
+            response = new ResponseEntity(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return response;
     }
 }

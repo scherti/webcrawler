@@ -10,7 +10,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockserver.client.server.MockServerClient;
 import org.mockserver.integration.ClientAndServer;
-import org.mockserver.model.*;
+import org.mockserver.model.Delay;
+import org.mockserver.model.Header;
+import org.mockserver.model.HttpRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,6 +24,7 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
 import static org.mockserver.matchers.Times.exactly;
 import static org.mockserver.model.HttpResponse.response;
@@ -27,6 +32,7 @@ import static org.mockserver.model.HttpResponse.response;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class WebcrawlerApplicationTests {
+    private static final Logger logger = LoggerFactory.getLogger(WebcrawlerApplicationTests.class);
 
     private ClientAndServer mockServer;
 
@@ -69,8 +75,10 @@ public class WebcrawlerApplicationTests {
 
             assertEquals(54, links.size());
         } catch (Exception e) {
-            System.out.println(e);
+            logger.error(e.getMessage());
+            assertTrue(false);
         }
     }
 
+    // etc. ...
 }

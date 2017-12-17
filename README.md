@@ -19,9 +19,11 @@ This should increase the throughput dramatically. The threads are managed within
 ## What else could have been done
 
 For the assessment I wanted to limit the scope of this application and therefore only a limited set of functions was 
-implemented. Only a few specific error handlers are to find in the code base as well as the code coverage of JUnit tests is not complete.
+implemented. Also only a few specific error handlers are to find in the code base as well as the code coverage of JUnit tests is only rudimentary.
 
 Other useful addons i could think of would be:
+- configurable settings in properties file
+- service health monitor
 - limit of maximum amount of simultaneous web requests
 - retries if downloads of web pages are failing or running into a timeouts
 - Micro service support e.g. service discovery etc.
@@ -30,9 +32,12 @@ Other useful addons i could think of would be:
 
 Build project
 
-**`TODO:`** Start Springboot application
+Start Springboot application
+<PROJECT_DIR>/mvn spring-boot:run
 
-**`TODO:`** Sample web request
+
+Sample web request
+**_curl -u "webcrawler:wbpwd" "http://localhost:8080/webcrawler/findLinks?level=2&url=http://google.com"_**
 
 Credentials:
 webcrawler/wbpwd
@@ -46,20 +51,18 @@ Free ports on local machine: 8080, 1080
 
 ### Installing
 
-**`TODO:`**
-MAVEN COMMAND...
+<PROJECT_DIR>/mvn install
 
 ## Running the tests
 
 Running the test will start a mock server listening on port 1080
 
-**`TODO:`**
-MAVEN COMMAND...
+<PROJECT_DIR>/mvn 
 
 ### And coding style tests
 
 **`TODO:`**
-Git HOOKS? Explain what these tests test and why
+Via Git HOOKS maybe?
 
 ## Built With
 

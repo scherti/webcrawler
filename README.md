@@ -21,7 +21,7 @@ This should increase the throughput dramatically. The threads are managed within
 For the assessment I wanted to limit the scope of this application and therefore only a limited set of functions was 
 implemented. Also only a few specific error handlers are to find in the code base as well as the code coverage of JUnit tests is only rudimentary.
 
-Other useful addons i could think of would be:
+**Other useful addons i could think of would be:**
 - configurable settings in properties file
 - service health monitor
 - limit of maximum amount of simultaneous web requests
@@ -32,15 +32,15 @@ Other useful addons i could think of would be:
 
 Build project
 
-Start Springboot application
-<PROJECT_DIR>/mvn spring-boot:run
+Start Springboot application<br>
+`<PROJECT_DIR>/mvn spring-boot:run`
 
 
-Sample web request
-**_curl -u "webcrawler:wbpwd" "http://localhost:8080/webcrawler/findLinks?level=2&url=http://google.com"_**
+Sample web request<br>
+`curl -u "webcrawler:wbpwd" "http://localhost:8080/webcrawler/findLinks?level=2&url=http://google.com"`
 
-Credentials:
-webcrawler/wbpwd
+Credentials:<br>
+**webcrawler/wbpwd**
 
 
 ### Prerequisites
@@ -51,13 +51,13 @@ Free ports on local machine: 8080, 1080
 
 ### Installing
 
-<PROJECT_DIR>/mvn install
+`<PROJECT_DIR>/mvn install`
 
 ## Running the tests
 
 Running the test will start a mock server listening on port 1080
 
-<PROJECT_DIR>/mvn 
+`<PROJECT_DIR>/mvn test`
 
 ### And coding style tests
 
